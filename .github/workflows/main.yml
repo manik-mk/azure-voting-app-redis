@@ -42,4 +42,4 @@ jobs:
              azure-vote-all-in-one-redis.yaml
           images: '${{ secrets.registry }}.azurecr.io/azure-vote-front:${{ github.sha }}'
           imagepullsecrets: |
-             ${{ env.PROJECT_NAME }}
+             ${{ secrets.PROJECT_NAME }}
