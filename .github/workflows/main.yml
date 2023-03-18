@@ -14,8 +14,7 @@ jobs:
         uses: azure/acr-build@v1
         with:
           service_principal: ${{ secrets.service_principal }}
-          service_principal_password: ${{ 
-secrets.service_principal_password }}
+          service_principal_password: ${{ secrets.service_principal_password }}
           tenant: ${{ secrets.tenant }}
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
@@ -44,6 +43,5 @@ secrets.service_principal_password }}
           namespace: 'default'
           manifests: |
              azure-vote-all-in-one-redis.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ 
-secrets.repository }}/azure-vote-front:${{ github.sha }}'
+          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
           pull-images: false
