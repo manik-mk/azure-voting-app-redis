@@ -1,8 +1,5 @@
 name: build_deploy_aks
-on:
-  push:
-    paths:
-      - "azure-vote/**"
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,4 +41,5 @@ jobs:
           manifests: |
              azure-vote-all-in-one-redis.yaml
           images: '${{ secrets.registry }}.azurecr.io/azure-vote-front:${{ github.sha }}'
-          pull-images: false
+          imagepullsecrets: |
+             ${{ env.PROJECT_NAME }}
